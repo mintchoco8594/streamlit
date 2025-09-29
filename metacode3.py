@@ -103,7 +103,7 @@ merged["residual"] = merged["y"] - merged["yhat"]
 fig4, ax2 = plt.subplots(figsize=(14, 4))
 
 #'''코드를 작성하시오'''
-ax2.plot(merged["ds"], merged["residual"], color="purple", marker="o", markersize=3, linestyle="-", label="Residual")
+ax2.plot(merged["ds"], merged["residual"], color="purple", marker="o", linestyle="-", label="Residual")
 ax2.axhline(0, color="black", linestyle="--")
 ax2.set_title("Residual Analysis (Actual - Predicted)")
 ax2.set_xlabel("Year")
