@@ -99,7 +99,7 @@ try:
 
     # 연도 범위 선택
     #'''코드를 작성하시오'''
-    year_range = st.sidebar.slider('연도 범위 선택', min_value=df.index.min(), max_value=df.index.max(), value=[df.index.min(), df.index.max()], step=1)
+    year_range = st.sidebar.slider('연도 범위 선택', min_value=df['YEAR_INT'].min(), max_value=df['YEAR_INT'].max(), value=[df['YEAR_INT'].min(), df['YEAR_INT'].max()], step=1)
 
     # 히스토그램 빈(bin) 수 조절
     hist_bins = st.sidebar.slider(
