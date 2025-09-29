@@ -15,8 +15,8 @@ st.title("🌞 Prophet Forecast with Preprocessed Sunspot Data")
 df = pd.read_csv("data/sunspots_for_prophet.csv")
 df['ds'] = pd.to_datetime(df['ds'])
 
-st.subheader("📄 데이터 미리보기")
-'''코드를 작성하시오'''
+st.subheader("📄 불러온 데이터 미리보기")
+#'''코드를 작성하시오'''
 st.write(df.head())
 
 # ----------------------------------
@@ -47,6 +47,7 @@ st.subheader("📈 Prophet Forecast Plot")
 # TODO: model.plot()을 사용하여 예측 결과를 시각화하세요.
 #'''코드를 작성하시오'''
 fig1 = model.plot(forecast)
+fig1.set_title("Prophet Forecast Plot")
 st.pyplot(fig1)
 
 st.subheader("📊 Forecast Components")
@@ -64,19 +65,19 @@ st.subheader("📉 Custom Plot: Actual vs Predicted with Prediction Intervals")
 fig3, ax = plt.subplots(figsize=(14, 6))
 
 #'''코드를 작성하시오'''
-ax.plot(df["ds"], df["y"], label="Actual", color="blue", marker="o", markersize=3, linestyle="-")
+ax.plot(df["ds"], df["y"], label="Actual", color="blue", marker="o", linestyle="-")
 ax.plot(forecast["ds"], forecast["yhat"], label="Predicted", color="red", linestyle="--")
 ax.fill_between(
     forecast["ds"],
     forecast["yhat_lower"],
     forecast["yhat_upper"],
     color="red",
-    alpha=0.2,
+    alpha=0.1,
     label="Prediction Interval"
 )
 ax.set_title("Sunspots: Actual vs. Predicted with Prediction Intervals")
 ax.set_xlabel("Year")
-ax.set_ylabel("Sun Activity")
+ax.set_ylabel("Sunspot Activity")
 ax.legend()
 ax.grid(True)
 
