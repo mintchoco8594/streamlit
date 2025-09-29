@@ -47,7 +47,8 @@ st.subheader("📈 Prophet Forecast Plot")
 # TODO: model.plot()을 사용하여 예측 결과를 시각화하세요.
 #'''코드를 작성하시오'''
 fig1 = model.plot(forecast)
-fig1.set_title("Prophet Forecast Plot")
+ax1 = fig1.gca()  # 현재 Axes 객체 가져오기
+ax1.set_title("Prophet Forecast Plot")
 st.pyplot(fig1)
 
 st.subheader("📊 Forecast Components")
