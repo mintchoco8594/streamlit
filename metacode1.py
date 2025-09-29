@@ -23,7 +23,7 @@ def plot_advanced_sunspot_visualizations(df, sunactivity_col='SUNACTIVITY'):
     fig.suptitle("Sunspots Data Advanced Visualization", fontsize=18)
 
     # (a) 전체 시계열 라인 차트
-    '''코드를 작성하시오'''
+    #'''코드를 작성하시오'''
     axs[0, 0].plot(df['YEAR'], df[sunactivity_col], color='blue', linewidth=1)
 
 
@@ -38,7 +38,7 @@ def plot_advanced_sunspot_visualizations(df, sunactivity_col='SUNACTIVITY'):
         xs = np.linspace(data.min(), data.max(), 200)
         density = gaussian_kde(data)
 
-        '''코드를 작성하시오'''
+        #'''코드를 작성하시오'''
         axs[0, 1].hist(data, bins=30, density=True, alpha=0.6, color='gray', label='Histogram')
 
         axs[0, 1].plot(xs, density(xs), color='red', linewidth=2, label='Density')
@@ -52,7 +52,7 @@ def plot_advanced_sunspot_visualizations(df, sunactivity_col='SUNACTIVITY'):
     try:
         df_20th = df.loc["1900":"2000"]
         if not df_20th.empty:
-            '''코드를 작성하시오'''
+            #'''코드를 작성하시오'''
             axs[1, 0].boxplot(df_20th[sunactivity_col], vert=False)
 
     except:
@@ -107,4 +107,5 @@ try:
 
 except Exception as e:
     st.error(f"오류가 발생했습니다: {e}")
+
     st.info("데이터 파일의 구조를 확인해주세요. 'data/sunspots.csv' 파일이 존재하고 'YEAR'와 'SUNACTIVITY' 컬럼이 있어야 합니다.")
