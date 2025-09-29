@@ -25,6 +25,7 @@ def plot_advanced_sunspot_visualizations(df, sunactivity_col='SUNACTIVITY'):
     # (a) 전체 시계열 라인 차트
     #'''코드를 작성하시오'''
     axs[0, 0].plot(df['YEAR'], df[sunactivity_col], color='blue', linewidth=1)
+    axs[0, 0].set_xticks(np.arange(1720, 2000+1, 40))
 
 
     axs[0, 0].set_title("Sunspot Activity Over Time")
@@ -109,3 +110,4 @@ except Exception as e:
     st.error(f"오류가 발생했습니다: {e}")
 
     st.info("데이터 파일의 구조를 확인해주세요. 'data/sunspots.csv' 파일이 존재하고 'YEAR'와 'SUNACTIVITY' 컬럼이 있어야 합니다.")
+
